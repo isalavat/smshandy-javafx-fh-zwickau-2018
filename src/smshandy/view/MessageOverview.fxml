@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smshandy.view.MessageOverviewController">
+   <children>
+      <TabPane layoutX="25.0" layoutY="115.0" prefHeight="200.0" prefWidth="310.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Sent">
+               <content>
+                  <FlowPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="fromSentTableView" prefHeight="155.0" prefWidth="310.0">
+                          <columns>
+                            <TableColumn fx:id="fromSentTableColumn" prefWidth="309.0" text="Messages" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </FlowPane>
+               </content>
+          </Tab>
+          <Tab text="Recieved">
+               <content>
+                  <FlowPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="fromRecievedTableView" prefHeight="156.0" prefWidth="309.0">
+                          <columns>
+                            <TableColumn fx:id="fromRecievedTableColumn" prefWidth="308.0" text="Messages" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </FlowPane>
+               </content>
+          </Tab>
+        </tabs>
+         <effect>
+            <Reflection />
+         </effect>
+      </TabPane>
+      <TabPane layoutX="383.0" layoutY="115.0" prefHeight="200.0" prefWidth="292.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Recieved">
+               <content>
+                  <FlowPane prefHeight="140.0" prefWidth="229.0">
+                     <children>
+                        <TableView fx:id="toRecievedTableView" prefHeight="155.0" prefWidth="291.0">
+                          <columns>
+                            <TableColumn fx:id="toRecievedTableColumn" prefWidth="290.0" text="Messages" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </FlowPane>
+               </content>
+          </Tab>
+          <Tab text="Sent">
+               <content>
+                  <FlowPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="toSentTableView" prefHeight="154.0" prefWidth="293.0">
+                          <columns>
+                            <TableColumn fx:id="toSentTableColumn" prefWidth="292.0" text="Messages" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </FlowPane>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="sendButton" layoutX="524.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleSendButton" text="Send" />
+      <TextField fx:id="messageTextField" layoutX="184.0" layoutY="332.0" prefHeight="26.0" prefWidth="326.0" />
+      <ComboBox fx:id="fromProviderBox" layoutX="180.0" layoutY="14.0" onAction="#handleFromProviderBox" prefWidth="150.0" />
+      <ComboBox fx:id="toProviderBox" layoutX="383.0" layoutY="14.0" onAction="#handleToProviderBox" prefWidth="150.0" />
+      <ComboBox fx:id="fromSmsHandyBox" layoutX="180.0" layoutY="58.0" onAction="#handleFromSmsHandyBox" prefWidth="150.0" />
+      <ComboBox fx:id="toSmsHandyBox" layoutX="384.0" layoutY="58.0" onAction="#handleToSmsHandyBox" onDragDropped="#handleToSmsHandyBox" prefWidth="150.0" />
+      <Label layoutX="35.0" layoutY="18.0" text="Choose sender provider" />
+      <Label layoutX="35.0" layoutY="62.0" prefHeight="17.0" prefWidth="127.0" text="Choose sender phone" />
+      <Label layoutX="546.0" layoutY="18.0" prefHeight="17.0" prefWidth="150.0" text="Choose reciever provider" />
+      <Label layoutX="546.0" layoutY="62.0" text="Choose reciever phone" />
+   </children>
+</AnchorPane>
